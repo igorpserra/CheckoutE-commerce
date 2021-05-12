@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  backend:
+    image: igorps/ecommerce_backend
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - 'database'
+    network_mode: "host"
+  database:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ecommerce_checkout
+    ports:
+      - 3306:3306
+    network_mode: "host"
