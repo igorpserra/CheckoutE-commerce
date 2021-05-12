@@ -5,6 +5,7 @@ import com.pulse.desafio.ecommerce.checkout.models.Endereco;
 import com.pulse.desafio.ecommerce.checkout.models.Pagamento;
 import com.pulse.desafio.ecommerce.checkout.repository.ClienteRepository;
 import com.pulse.desafio.ecommerce.checkout.repository.EnderecoRepository;
+import com.pulse.desafio.ecommerce.checkout.repository.PagamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -21,6 +22,8 @@ public class ClienteController {
     ClienteRepository clienteRepository;
     @Autowired
     EnderecoRepository enderecoRepository;
+    @Autowired
+    PagamentoRepository pagamentoRepository;
 
     @PostMapping("/criar")
     public void criarCliente(@RequestBody Cliente cliente){
@@ -58,11 +61,13 @@ public class ClienteController {
             endereco1.setCep("65123-110");
             endereco1.setNumero(21);
             endereco1.setRua("Rua Diamante");
+            enderecoRepository.save(endereco1);
         cliente1.setEnderecoCliente(endereco1);
             Pagamento pagamento1 = new Pagamento();
             pagamento1.setNomeCartao("PulseCompras Virtual");
             pagamento1.setValidade("02/22");
             pagamento1.setNumeroCartao("4452332678429465");
+            pagamentoRepository.save(pagamento1);
         cliente1.setDadosCartao(pagamento1);
 
         cliente2.setNomeCliente("EstoquePulse");
@@ -72,11 +77,13 @@ public class ClienteController {
             endereco2.setCep("65321-123");
             endereco2.setNumero(111);
             endereco2.setRua("Rua Pax");
+            enderecoRepository.save(endereco2);
         cliente2.setEnderecoCliente(endereco2);
             Pagamento pagamento2 = new Pagamento();
             pagamento2.setNomeCartao("EstoquePulse Master");
             pagamento2.setValidade("07/24");
             pagamento2.setNumeroCartao("6487549863638457");
+            pagamentoRepository.save(pagamento2);
         cliente2.setDadosCartao(pagamento2);
 
         if(!(clienteRepository.existsByNomeCliente(cliente1.getNomeCliente()))){
