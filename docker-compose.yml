@@ -3,7 +3,6 @@ version: '3'
 services:
   backend:
     image: igorps/ecommerce_backend
-    build: .
     ports:
       - 8080:8080
     depends_on:
