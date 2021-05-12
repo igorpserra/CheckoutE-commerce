@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CupomRepository extends JpaRepository<Cupom,Long> {
     Cupom findByNomeCupom(String nome);
+    Boolean existsByNomeCupom(String nome);
 }

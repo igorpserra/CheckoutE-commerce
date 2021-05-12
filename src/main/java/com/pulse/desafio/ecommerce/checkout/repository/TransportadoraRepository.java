@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TransportadoraRepository extends JpaRepository<Transportadora,Long> {
 
     Transportadora findByNome(String nome);
+    Boolean existsByNome(String nome);
 }

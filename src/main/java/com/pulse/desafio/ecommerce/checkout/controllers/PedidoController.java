@@ -6,6 +6,8 @@ import com.pulse.desafio.ecommerce.checkout.models.DTOs.CheckoutSuccess;
 import com.pulse.desafio.ecommerce.checkout.models.DTOs.DadosCheckout;
 import com.pulse.desafio.ecommerce.checkout.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +30,6 @@ public class PedidoController {
     PedidoRepository pedidoRepository;
     @Autowired
     CupomRepository cupomRepository;
-
 
     Cliente cliente;
     Carrinho carrinho = new Carrinho();
@@ -152,5 +153,45 @@ public class PedidoController {
     public List<Cupom> listarCupons(){
 
         return cupomRepository.findAll();
+    }
+
+
+    @EventListener
+    public void seedTranportadora(ContextRefreshedEvent event){
+        Transportadora transportadora1 = new Transportadora();
+        Transportadora transportadora2 = new Transportadora();
+        Transportadora transportadora3 = new Transportadora();
+
+        transportadora1.setNome("Direct Transport");
+        transportadora1.setTaxa(35.70F);
+
+        transportadora2.setNome("Correios");
+        transportadora2.setTaxa(25.60F);
+
+        transportadora3.setNome("Transporte Ja");
+        transportadora3.setTaxa(63.44F);
+
+        if(!(transportadoraRepository.existsByNome(transportadora1.getNome()))) {
+            transportadoraRepository.save(transportadora1);
+        }
+        if(!(transportadoraRepository.existsByNome(transportadora2.getNome()))) {
+            transportadoraRepository.save(transportadora2);
+        }
+        if(!(transportadoraRepository.existsByNome(transportadora3.getNome()))) {
+            transportadoraRepository.save(transportadora3);
+        }
+
+    }
+
+    @EventListener
+    public void seedCupom(ContextRefreshedEvent event){
+        Cupom cupom1 = new Cupom();
+
+        cupom1.setNomeCupom("Pulse10");
+        cupom1.setValorDesconto(0.1F);
+
+        if(!(cupomRepository.existsByNomeCupom(cupom1.getNomeCupom()))){
+            cupomRepository.save(cupom1);
+        }
     }
 }
