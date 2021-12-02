@@ -183,15 +183,15 @@ public class PedidoController {
 
     }
 
-    @EventListener
-    public void seedCupom(ContextRefreshedEvent event){
-        Cupom cupom1 = new Cupom();
-
-        cupom1.setNomeCupom("Pulse10");
-        cupom1.setValorDesconto(0.1F);
-
-        if(!(cupomRepository.existsByNomeCupom(cupom1.getNomeCupom()))){
-            cupomRepository.save(cupom1);
-        }
-    }
+//    @EventListener
+//    public void seedCupom(ContextRefreshedEvent event){
+//        Cupom cupom1 = new Cupom();
+//
+//        cupom1.setNomeCupom("Pulse10");
+//        cupom1.setValorDesconto(0.1F);
+//
+//        if(!(cupomRepository.existsByNomeCupom(cupom1.getNomeCupom()))){
+//            cupomRepository.save(cupom1);
+//        }
+//    }
 }

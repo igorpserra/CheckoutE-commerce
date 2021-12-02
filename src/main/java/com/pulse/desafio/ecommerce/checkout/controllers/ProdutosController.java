@@ -81,40 +81,40 @@ public class ProdutosController {
 
 
 
-    @EventListener
-    public void seedProduto(ContextRefreshedEvent event){
-        Produto produto1 = new Produto();
-        Produto produto2 = new Produto();
-        Produto produto3 = new Produto();
-        Produto produto4 = new Produto();
-
-        produto1.setNomeProduto("Celular");
-        produto1.setDescricao("Celular Samsung");
-        produto1.setPreco(870.99F);
-
-        produto2.setNomeProduto("Televisao");
-        produto2.setDescricao("Televisao LG");
-        produto2.setPreco(1270.99F);
-
-        produto3.setNomeProduto("Microondas");
-        produto3.setDescricao("Microondas eletrolux");
-        produto3.setPreco(920.99F);
-
-        produto4.setNomeProduto("Chapinha");
-        produto4.setDescricao("Chapa Quente");
-        produto4.setPreco(220.99F);
-
-        if(!(produtoRepository.existsByNomeProduto(produto1.getNomeProduto()))) {
-            produtoRepository.save(produto1);
-        }
-        if(!(produtoRepository.existsByNomeProduto(produto2.getNomeProduto()))) {
-            produtoRepository.save(produto2);
-        }
-        if(!(produtoRepository.existsByNomeProduto(produto3.getNomeProduto()))) {
-            produtoRepository.save(produto3);
-        }
-        if(!(produtoRepository.existsByNomeProduto(produto4.getNomeProduto()))) {
-            produtoRepository.save(produto4);
-        }
-    }
+//    @EventListener
+//    public void seedProduto(ContextRefreshedEvent event){
+//        Produto produto1 = new Produto();
+//        Produto produto2 = new Produto();
+//        Produto produto3 = new Produto();
+//        Produto produto4 = new Produto();
+//
+//        produto1.setNomeProduto("Celular");
+//        produto1.setDescricao("Celular Samsung");
+//        produto1.setPreco(870.99F);
+//
+//        produto2.setNomeProduto("Televisao");
+//        produto2.setDescricao("Televisao LG");
+//        produto2.setPreco(1270.99F);
+//
+//        produto3.setNomeProduto("Microondas");
+//        produto3.setDescricao("Microondas eletrolux");
+//        produto3.setPreco(920.99F);
+//
+//        produto4.setNomeProduto("Chapinha");
+//        produto4.setDescricao("Chapa Quente");
+//        produto4.setPreco(220.99F);
+//
+//        if(!(produtoRepository.existsByNomeProduto(produto1.getNomeProduto()))) {
+//            produtoRepository.save(produto1);
+//        }
+//        if(!(produtoRepository.existsByNomeProduto(produto2.getNomeProduto()))) {
+//            produtoRepository.save(produto2);
+//        }
+//        if(!(produtoRepository.existsByNomeProduto(produto3.getNomeProduto()))) {
+//            produtoRepository.save(produto3);
+//        }
+//        if(!(produtoRepository.existsByNomeProduto(produto4.getNomeProduto()))) {
+//            produtoRepository.save(produto4);
+//        }
+//    }
 }
