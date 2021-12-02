@@ -110,5 +110,3 @@ Por fim, para consultar o relatório de pedidos, utiliza-se a URL:
 ```
 GET localhost:8080/pedido/pedidos	
 ```
-	
-**No escopo deste protótipo, caso deseje adicionar um novo pedido, é necessário fazer o reload da aplicação e reafazer os passos descritos acima com os dados do novo pedido. Pedidos anteriores não serão apagados, continuarão gravados no BD**
