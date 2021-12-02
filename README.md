@@ -5,20 +5,32 @@ API de checkout para E-commerce
 ## Objetivo
 Esta documentação tem como objetivo a exposição da ferramenta de checkout para sistemas de E-commerce.
 
+## Índice
+
+* [Instalando a aplicação](#instalando-a-aplicação)
+* [Utilizando a ferramenta](#utilizando-a-ferramenta)
+
 ## Instalando a aplicação
-	
-O arquivo docker-compose se encontra na raiz do projeto: 	
-  > docker-compose.yml  
-  
 	  
-Link para o repositório do GitHub:   
-https://github.com/igorpserra/CheckoutE-commerce  
+Link para clonar o repositório do GitHub:   
+https://github.com/igorpserra/CheckoutE-commerce.git     
+
+Após o clone do projeto basta importar em sua IDE como um projeto mavem, referenciado o arquivo:
+
+> pom.xml
+
+O mavem então cuidará das importações do projeto. Após isso, é só apertar <em>run</em>
+
+
 Link DokerHub:  
 https://hub.docker.com/repository/docker/igorps/ecommerce_backend  
-Link Collection Postman:  
-https://www.getpostman.com/collections/8b79492c495e5f40c2f1  
+ 
 
 ## Utilizando a ferramenta
+
+Todas o métodos listados abaixo podem ser testados no postman, através da collection abaixo:
+https://www.getpostman.com/collections/8b79492c495e5f40c2f1 
+
 Inicialmente é necessário informar ao sistema qual o usuário que efetuará a compra. Os clientes cadastrados podem ser visualizados através da URL:  
   
  ```
